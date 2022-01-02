@@ -52,13 +52,3 @@ where driverid in (select driverid from last)
 
 
 
--- 4. Names of the people with fastest lap in each year, return driver name, year and race name
-
-select d.forename,d.surname ,d.driverid,fastestLapTime,year,name
-from drivers d join results r on r.driverid = d.driverid 
-join races on races.raceid = r.raceid
-where not fastestLapTime = ""
-group by year
-order by year 
-
-
