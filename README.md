@@ -10,7 +10,7 @@ List of tables
 Q 1. How many drivers competed in 2016?
 
 ```SQL
-SELECT COUNT(DISTINCT r.driverId) as drivers
+SELECT COUNT(DISTINCT r.driverId) AS drivers
 FROM results r
 INNER JOIN races
   ON races.raceId = r.raceId
@@ -23,11 +23,11 @@ Q 2. Names of the drivers who competed in 2004 and did not compete in 2003
 SELECT DISTINCT d.driverid,d.forename,d.surname,ra.year 
 FROM drivers d
 INNER JOIN results r
-  on d.driverid = r.driverid
+  ON d.driverid = r.driverid
 INNER JOIN races ra 
   ON r.raceid = ra.raceid
 WHERE ra.year = 2004 
-  AND d.driverid not in 
+  AND d.driverid NOT IN 
   (SELECT d.driverid 
     FROM drivers d
     INNER JOIN results r
